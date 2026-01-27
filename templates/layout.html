@@ -18,8 +18,19 @@
     <nav class="site-nav">
       <div class="container">
         <ul>
-          <li><a href="{% url 'blogs:blogpost_list' %}">Home</a></li>
+          <li><a href="{% url 'blogs:blogpost_list' %}">Blog Posts</a></li>
           <li><a href="{% url 'users:register' %}">Register</a></li>
+          <li><a href="{% url 'users:login' %}">Login</a></li>
+          <li>
+            <form
+              class="logout-form"
+              action="{% url 'users:logout' %}"
+              method="post"
+            >
+              {% csrf_token %}
+              <button class="logout-button" type="submit">Logout</button>
+            </form>
+          </li>
         </ul>
       </div>
     </nav>
