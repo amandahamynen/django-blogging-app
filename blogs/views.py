@@ -1,5 +1,4 @@
-from django.http import Http404
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from .models import BlogPost
 
 def blogpost_list(request):
@@ -7,8 +6,5 @@ def blogpost_list(request):
     return render(request, 'blogs/blogpost_list.html', {'blogposts': blogposts})
 
 def blogpost_detail(request, blog_id):
-    try:
-        blogpost = BlogPost.objects.get(id=blog_id)
-    except BlogPost.DoesNotExist:
-        raise Http404("Blog post does not exist")
+    blogpost = get_object_or_404(BlogPost, id=blog_id)
     return render(request, 'blogs/blogpost_detail.html', {'blogpost': blogpost})
