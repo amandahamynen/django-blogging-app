@@ -1,5 +1,10 @@
-from django.http import HttpResponse
+from django.shortcuts import render
+from .models import BlogPost
 
+def blogpost_list(request):
+    blogposts = BlogPost.objects.all()
+    return render(request, 'blogpost_list.html', {'blogposts': blogposts})
 
-def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+def blogpost_detail(request, blog_id):
+    blogpost = BlogPost.objects.get(id=blog_id)
+    return render(request, 'blogpost_detail.html', {'blogpost': blogpost})

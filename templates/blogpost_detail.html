@@ -1,0 +1,14 @@
+{% extends 'base.html' %}{% block content %}
+<article class="blogpost-detail">
+  <h1 class="post-title">{{ blogpost.title }}</h1>
+
+  <p class="blogpost-meta">
+    Published on {{ blogpost.created_at|date:"M d, Y" }}
+  </p>
+
+  <div class="blogpost-content">{{ blogpost.content|linebreaks }}</div>
+  <a class="back-link" href="{% url 'blogpost_list' %}">
+    ← Back to all blogposts
+  </a>
+</article>
+{% endblock %}

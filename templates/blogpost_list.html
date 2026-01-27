@@ -1,0 +1,24 @@
+{% extends 'base.html' %}{% block content %}
+<h2 class="page-title">All Blogposts</h2>
+
+<div class="blogpost-list">
+  {% for blogpost in blogposts %}
+  <article class="blogpost-card">
+    <h3>
+      <a href="{% url 'blogpost_detail' blogpost.id %}">
+        {{ blogpost.title }}
+      </a>
+    </h3>
+    <p class="blogpost-meta">
+      Published on {{ blogpost.created_at|date:"M d, Y" }}
+    </p>
+    <p class="blogpost-excerpt">{{ blogpost.content|truncatewords:25 }}</p>
+    <a class="read-more" href="{% url 'blogpost_detail' blogpost.id %}">
+      Read more →
+    </a>
+  </article>
+  {% empty %}
+  <p>No blogposts yet.</p>
+  {% endfor %}
+</div>
+{% endblock %}
