@@ -21,6 +21,9 @@
           {% if user.is_authenticated %}
           <li><a href="{% url 'blogs:blogpost_list' %}">Blog Posts</a></li>
           <li>
+            <a href="{% url 'blogs:blogpost_create' %}">Create Blog Post</a>
+          </li>
+          <li>
             <form
               class="logout-form"
               action="{% url 'users:logout' %}"
