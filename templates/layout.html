@@ -18,9 +18,8 @@
     <nav class="site-nav">
       <div class="container">
         <ul>
+          {% if user.is_authenticated %}
           <li><a href="{% url 'blogs:blogpost_list' %}">Blog Posts</a></li>
-          <li><a href="{% url 'users:register' %}">Register</a></li>
-          <li><a href="{% url 'users:login' %}">Login</a></li>
           <li>
             <form
               class="logout-form"
@@ -31,6 +30,10 @@
               <button class="logout-button" type="submit">Logout</button>
             </form>
           </li>
+          {% else %}
+          <li><a href="{% url 'users:login' %}">Login</a></li>
+          <li><a href="{% url 'users:register' %}">Register</a></li>
+          {% endif %}
         </ul>
       </div>
     </nav>
