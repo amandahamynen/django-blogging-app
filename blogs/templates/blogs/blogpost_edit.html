@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block title %}{{ blogpost.title }} - Modify{% endblock %}
+{% block content %}
+<h2 class="page-title">Modify Blog Post</h2>
+<form method="post">
+  {% csrf_token %}
+  <label for="title">Title:</label>
+  <input type="text" id="title" name="title" value="{{ blogpost.title }}" required />
+    <br />
+    <label for="content">Content:</label>
+    <textarea id="content" name="content" required>{{ blogpost.content }}</textarea>
+    <br />
+    <input type="checkbox" id="private" name="private" {% if blogpost.private %}checked{% endif %}> Private</input>
+    <br />
+    <button type="submit">Save Changes</button>
+</form>
+{% endblock %}

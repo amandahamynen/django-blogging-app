@@ -2,6 +2,10 @@
 {% block title %}{{ blogpost.title }}{% endblock %}
 {% block content %}
 <article class="blogpost-detail">
+  <form method="post" action="">
+    {% csrf_token %}
+    <button type="submit">Modify Blogpost</button>
+  </form>
   <h1 class="post-title">{{ blogpost.title }}</h1>
 
   <p class="blogpost-meta">
