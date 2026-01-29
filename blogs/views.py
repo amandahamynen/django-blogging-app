@@ -10,7 +10,16 @@ def blogpost_list_all(request):
 @login_required(login_url='/users/login/')
 def blogpost_list_my(request):
     blogposts = BlogPost.objects.filter(creator=request.user)
-    return render(request, 'blogs/blogpost_list.html', {'blogposts': blogposts})
+    if request.method == 'POST':
+        return redirect('blogs:blogpost_toggle_privacy', blogpost_id=request.POST.get('blogpost_id'))
+    return render(request, 'blogs/blogpost_list_my.html', {'blogposts': blogposts})
+
+@login_required(login_url='/users/login/')
+def blogpost_toggle_privacy(request, blogpost_id):
+    blogpost = get_object_or_404(BlogPost, id=blogpost_id, creator=request.user)
+    blogpost.private = not blogpost.private
+    blogpost.save()
+    return redirect('blogs:blogpost_list_my')
 
 @login_required(login_url='/users/login/')
 def blogpost_detail(request, blogpost_id):
@@ -37,4 +46,4 @@ def blogpost_create(request):
         content = request.POST.get('content')
         blogpost = BlogPost.objects.create(title=title, content=content, creator=request.user)
         return redirect('blogs:blogpost_detail', blogpost_id=blogpost.id)
-    return render(request, 'blogs/blogpost_creation_form.html')
+    return render(request, 'blogs/blogpost_create.html')

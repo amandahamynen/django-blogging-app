@@ -2,12 +2,15 @@
 {% block title %}{{ blogpost.title }}{% endblock %}
 {% block content %}
 <article class="blogpost-detail">
-  <form method="post" action="">
-    {% csrf_token %}
-    <button type="submit">Modify Blogpost</button>
-  </form>
+  <div class="blogpost-detail-header">
   <h1 class="post-title">{{ blogpost.title }}</h1>
-
+  <form method="post" action="" class="blogpost-edit-form">
+    {% csrf_token %}
+    <button type="submit" class="edit-button" title="Edit post">
+      🖊️
+    </button>
+  </form>
+</div>
   <p class="blogpost-meta">
     Published on {{ blogpost.created_at|date:"M d, Y" }}
   </p>
