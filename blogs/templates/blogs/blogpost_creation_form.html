@@ -1,4 +1,6 @@
-{% extends 'layout.html' %}{% block content %}
+{% extends 'layout.html' %}
+{% block title %}Create Blog Post{% endblock %}
+{% block content %}
 <h2 class="page-title">Create Blog Post</h2>
 <form method="post">
   {% csrf_token %}

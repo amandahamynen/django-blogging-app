@@ -3,15 +3,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>{% block title %}Blogging platform{% endblock %}</title>
+    <title>{% block title %}Django Blogging app{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
   </head>
   <body>
     <header class="site-header">
-      <div class="container">
+      <div class="header-container">
         <h1 class="logo">
-          <a href="{% url 'blogs:blogpost_list' %}">Blogposts</a>
+          <a href="{% url 'blogs:blogpost_list' %}">Django Blogging App</a>
         </h1>
+        {% if user.is_authenticated %}
+          <div class="user-info">
+            <p>Logged in as {{ user.username }}</p>
+        {% endif %}
+        </div>
       </div>
     </header>
 
@@ -41,7 +46,7 @@
       </div>
     </nav>
 
-    <main class="container">{% block content %}{% endblock %}</main>
+    <main class="content-container">{% block content %}{% endblock %}</main>
 
     <footer class="site-footer">
       <p>© {{ year|default:2026 }} Blogging Platform</p>
