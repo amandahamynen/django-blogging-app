@@ -10,7 +10,7 @@
     <header class="site-header">
       <div class="header-container">
         <h1 class="logo">
-          <a href="{% url 'blogs:blogpost_list' %}">Django Blogging App</a>
+          <a href="{% url 'blogs:blogpost_list_all' %}">Django Blogging App</a>
         </h1>
         {% if user.is_authenticated %}
           <div class="user-info">
@@ -24,7 +24,7 @@
       <div class="container">
         <ul>
           {% if user.is_authenticated %}
-          <li><a href="{% url 'blogs:blogpost_list' %}">Blog Posts</a></li>
+          <li><a href="{% url 'blogs:blogpost_list_all' %}">All Blog Posts</a></li>
           <li>
             <a href="{% url 'blogs:blogpost_create' %}">Create Blog Post</a>
           </li>

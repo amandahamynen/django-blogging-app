@@ -3,7 +3,7 @@ from .models import BlogPost
 from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='/users/login/')
-def blogpost_list(request):
+def blogpost_list_all(request):
     blogposts = BlogPost.objects.all()
     return render(request, 'blogs/blogpost_list.html', {'blogposts': blogposts})
 
@@ -17,6 +17,6 @@ def blogpost_create(request):
     if request.method == 'POST':
         title = request.POST.get('title')
         content = request.POST.get('content')
-        blogpost = BlogPost.objects.create(title=title, content=content)
+        blogpost = BlogPost.objects.create(title=title, content=content, creator=request.user)
         return redirect('blogs:blogpost_detail', blogpost_id=blogpost.id)
     return render(request, 'blogs/blogpost_creation_form.html')
