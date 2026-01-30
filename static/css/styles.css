@@ -39,8 +39,8 @@ body {
 
 /* Avatar */
 .user-avatar {
-  width: 36px;
-  height: 36px;
+  width: 46px;
+  height: 46px;
   background: #0066cc;
   color: #fff;
   border-radius: 50%;
@@ -48,7 +48,13 @@ body {
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.5rem;
+}
+
+.welcome-message {
+  margin-right: 0.5rem;
+  font-size: 0.9rem;
+  color: #fff;
 }
 
 /* Dropdown */
@@ -111,14 +117,24 @@ body {
 }
 
 .site-nav {
-  background-color: #f8f9fa;
+  background: #222;
   border-bottom: 1px solid #e5e7eb;
   margin-bottom: 2rem;
 }
 
+.site-nav a.active {
+  color: #fff;
+  font-weight: 600;
+  border-bottom: 2px solid #fff;
+}
+
+.site-nav a.active:hover {
+  color: #0052a3;
+}
+
 .site-nav .container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .site-nav ul {
@@ -135,7 +151,7 @@ body {
 
 .site-nav a {
   text-decoration: none;
-  color: #333;
+  color: #fff;
   font-weight: 500;
   padding: 0.25rem 0.5rem;
   transition: color 0.2s ease;
@@ -181,32 +197,21 @@ body {
   margin-bottom: 1.5rem;
 }
 
-/* Plus button */
-.create-post-button {
-  width: 36px;
-  height: 36px;
+.create-post-fab {
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   background: #0066cc;
   color: #fff;
-  text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  line-height: 1;
-  transition:
-    background 0.2s ease,
-    transform 0.1s ease;
-}
-
-.create-post-button:hover {
-  background: #0052a3;
-  transform: scale(1.05);
-}
-
-.create-post-button:active {
-  transform: scale(0.95);
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .blogpost-list {

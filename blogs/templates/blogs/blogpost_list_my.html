@@ -2,10 +2,9 @@
 {% block title %}My Blogposts{% endblock %}
 {% block content %}
 <div class="page-header">
-  <h2 class="page-title">My Blogposts</h2>
   <a
     href="{% url 'blogs:blogpost_create' %}"
-    class="create-post-button"
+    class="create-post-fab"
     title="Create new blogpost"
   >
     +
@@ -35,9 +34,6 @@
       Published on {{ blogpost.created_at|date:"M d, Y" }}
     </p>
     <p class="blogpost-excerpt">{{ blogpost.content|truncatewords:25 }}</p>
-    <a class="read-more" href="{% url 'blogs:blogpost_detail' blogpost.id %}">
-      Read more →
-    </a>
   </article>
   {% empty %}
   <p>No blogposts yet.</p>

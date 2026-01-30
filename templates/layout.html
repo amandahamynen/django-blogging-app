@@ -14,6 +14,9 @@
         </h1>
         {% if user.is_authenticated %}
           <div class="user-menu">
+            <span class="welcome-message">
+              Welcome, {{ user.username }}!
+            </span>
             <button class="user-avatar-button" id="userMenuButton" aria-haspopup="true">
               <span class="user-avatar">
                 {{ user.username|first|upper }}
@@ -46,11 +49,36 @@
       <div class="container">
         <ul>
           {% if user.is_authenticated %}
-            <li><a href="{% url 'blogs:blogpost_list_all' %}">All Blog Posts</a></li>
-            <li><a href="{% url 'blogs:blogpost_list_my' %}">My Blog Posts</a></li>
+            <li>
+              <a 
+                href="{% url 'blogs:blogpost_list_all' %}"
+                class="{% if request.resolver_match.url_name == 'blogpost_list_all' %}active{% endif %}"
+              >
+                All Blog Posts
+              </a>
+            </li>
+            <li>
+              <a
+              href="{% url 'blogs:blogpost_list_my' %}"
+              class="{% if request.resolver_match.url_name == 'blogpost_list_my' %}active{% endif %}">
+                My Blog Posts
+              </a>
+            </li>
           {% else %}
-            <li><a href="{% url 'users:login' %}">Login</a></li>
-            <li><a href="{% url 'users:register' %}">Register</a></li>
+            <li>
+              <a
+              href="{% url 'users:login' %}"
+                class="{% if request.resolver_match.url_name == 'login' %}active{% endif %}">
+                Login
+              </a>
+            </li>
+            <li>
+              <a 
+              href="{% url 'users:register' %}"
+                class="{% if request.resolver_match.url_name == 'register' %}active{% endif %}">
+                Register
+              </a>
+            </li>
           {% endif %}
         </ul>
       </div>
