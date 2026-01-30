@@ -16,19 +16,18 @@
   <article class="blogpost-card">
     <h3>
       <div>
-        <form method="post" style="display:inline;">
-          {% csrf_token %}
-          <input type="hidden" name="blogpost_id" value="{{ blogpost.id }}" />
-          <button type="submit" class="privacy-toggle-button">
-            {% if blogpost.private %}
-              🔒
-            {% else %}
-              🌍
-            {% endif %}
-          </button>
-        </form>
         <a href="{% url 'blogs:blogpost_detail' blogpost.id %}">
           {{ blogpost.title }}
+        </a>
+        <a href="{% url 'blogs:blogpost_toggle_privacy' blogpost.id %}" class="privacy-toggle-button" title="Toggle Privacy">
+          {% if blogpost.private %}
+            🔒
+          {% else %}
+            🌍
+          {% endif %}
+        </a>
+        <a href="{% url 'blogs:blogpost_edit' blogpost.id %}" class="edit-button" title="Edit post">
+          🖊️
         </a>
       </div>
     </h3>

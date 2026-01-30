@@ -12,7 +12,7 @@
       </a>
     </h3>
     <p class="blogpost-meta">
-      Published on {{ blogpost.created_at|date:"M d, Y" }}
+      {{ blogpost.creator }} | Published on {{ blogpost.created_at|date:"M d, Y" }}
     </p>
     <p class="blogpost-excerpt">{{ blogpost.content|truncatewords:25 }}</p>
     <a class="read-more" href="{% url 'blogs:blogpost_detail' blogpost.id %}">

@@ -3,16 +3,10 @@
 {% block content %}
 <article class="blogpost-detail">
   <div class="blogpost-detail-header">
-  <h1 class="post-title">{{ blogpost.title }}</h1>
-  <form method="post" action="" class="blogpost-edit-form">
-    {% csrf_token %}
-    <button type="submit" class="edit-button" title="Edit post">
-      🖊️
-    </button>
-  </form>
-</div>
+    <h1 class="post-title">{{ blogpost.title }}</h1>
+  </div>
   <p class="blogpost-meta">
-    Published on {{ blogpost.created_at|date:"M d, Y" }}
+    {{ blogpost.creator }} | Published on {{ blogpost.created_at|date:"M d, Y" }}
   </p>
 
   <div class="blogpost-content">{{ blogpost.content|linebreaks }}</div>
