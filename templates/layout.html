@@ -48,7 +48,6 @@
           {% if user.is_authenticated %}
             <li><a href="{% url 'blogs:blogpost_list_all' %}">All Blog Posts</a></li>
             <li><a href="{% url 'blogs:blogpost_list_my' %}">My Blog Posts</a></li>
-            <li><a href="{% url 'blogs:blogpost_create' %}">Create Blog Post</a></li>
           {% else %}
             <li><a href="{% url 'users:login' %}">Login</a></li>
             <li><a href="{% url 'users:register' %}">Register</a></li>

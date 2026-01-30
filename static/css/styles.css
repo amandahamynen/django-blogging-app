@@ -173,9 +173,40 @@ body {
   text-align: center;
 }
 
-/* Blogpost list */
-.page-title {
+/* Page header with action */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 1.5rem;
+}
+
+/* Plus button */
+.create-post-button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #0066cc;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition:
+    background 0.2s ease,
+    transform 0.1s ease;
+}
+
+.create-post-button:hover {
+  background: #0052a3;
+  transform: scale(1.05);
+}
+
+.create-post-button:active {
+  transform: scale(0.95);
 }
 
 .blogpost-list {

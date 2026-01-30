@@ -1,8 +1,16 @@
 {% extends 'layout.html' %}
 {% block title %}My Blogposts{% endblock %}
 {% block content %}
-<h2 class="page-title">My Blogposts</h2>
-
+<div class="page-header">
+  <h2 class="page-title">My Blogposts</h2>
+  <a
+    href="{% url 'blogs:blogpost_create' %}"
+    class="create-post-button"
+    title="Create new blogpost"
+  >
+    +
+  </a>
+</div>
 <div class="blogpost-list">
   {% for blogpost in blogposts %}
   <article class="blogpost-card">
