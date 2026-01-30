@@ -13,10 +13,32 @@
           <a href="{% url 'blogs:blogpost_list_all' %}">Django Blogging App</a>
         </h1>
         {% if user.is_authenticated %}
-          <div class="user-info">
-            <p>Logged in as {{ user.username }}</p>
+          <div class="user-menu">
+            <button class="user-avatar-button" id="userMenuButton" aria-haspopup="true">
+              <span class="user-avatar">
+                {{ user.username|first|upper }}
+              </span>
+            </button>
+
+            <div class="user-dropdown" id="userDropdown">
+              <div class="user-dropdown-header">
+                Signed in as<br />
+                <strong>{{ user.username }}</strong>
+              </div>
+
+              <form
+                action="{% url 'users:logout' %}"
+                method="post"
+              >
+                {% csrf_token %}
+                <button type="submit" class="dropdown-logout">
+                  Logout
+                </button>
+              </form>
+            </div>
+          </div>
         {% endif %}
-        </div>
+
       </div>
     </header>
 
@@ -24,24 +46,12 @@
       <div class="container">
         <ul>
           {% if user.is_authenticated %}
-          <li><a href="{% url 'blogs:blogpost_list_all' %}">All Blog Posts</a></li>
-          <li><a href="{% url 'blogs:blogpost_list_my' %}">My Blog Posts</a></li>
-          <li>
-            <a href="{% url 'blogs:blogpost_create' %}">Create Blog Post</a>
-          </li>
-          <li>
-            <form
-              class="logout-form"
-              action="{% url 'users:logout' %}"
-              method="post"
-            >
-              {% csrf_token %}
-              <button class="logout-button" type="submit">Logout</button>
-            </form>
-          </li>
+            <li><a href="{% url 'blogs:blogpost_list_all' %}">All Blog Posts</a></li>
+            <li><a href="{% url 'blogs:blogpost_list_my' %}">My Blog Posts</a></li>
+            <li><a href="{% url 'blogs:blogpost_create' %}">Create Blog Post</a></li>
           {% else %}
-          <li><a href="{% url 'users:login' %}">Login</a></li>
-          <li><a href="{% url 'users:register' %}">Register</a></li>
+            <li><a href="{% url 'users:login' %}">Login</a></li>
+            <li><a href="{% url 'users:register' %}">Register</a></li>
           {% endif %}
         </ul>
       </div>
@@ -52,5 +62,24 @@
     <footer class="site-footer">
       <p>© {{ year|default:2026 }} Blogging Platform</p>
     </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const button = document.getElementById("userMenuButton");
+        const dropdown = document.getElementById("userDropdown");
+
+        if (!button || !dropdown) return;
+
+        button.addEventListener("click", (e) => {
+          e.stopPropagation();
+          dropdown.classList.toggle("active");
+        });
+
+        document.addEventListener("click", () => {
+          dropdown.classList.remove("active");
+        });
+      });
+    </script>
+
   </body>
 </html>
