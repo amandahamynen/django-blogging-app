@@ -4,8 +4,9 @@ A simple blogging application built with Django, created as a project to practic
 
 ## Starting the application locally
 
-Make sure you have [Django installed](https://www.djangoproject.com/download/)
+Make sure you have Python and [Django installed](https://www.djangoproject.com/download/)
 ```bash
+python --version
 python -m pip show django
 ```
 
