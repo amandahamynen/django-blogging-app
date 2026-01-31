@@ -10,7 +10,7 @@ def register_view(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('blogs:blogpost_list_all')
+            return redirect('index')
     else:
         form = UserCreationForm()
     return render(request, 'users/register.html' , {'form': form})
@@ -24,7 +24,7 @@ def login_view(request):
             if 'next' in request.POST:
                 return redirect(request.POST.get('next'))
             else:
-                return redirect('blogs:blogpost_list_all')
+                return redirect('index')
     else:
         form = AuthenticationForm()
     return render(request, 'users/login.html', {'form': form})

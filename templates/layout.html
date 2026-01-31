@@ -10,7 +10,7 @@
     <header class="site-header">
       <div class="header-container">
         <h1 class="logo">
-          <a href="{% url 'blogs:blogpost_list_all' %}">Django Blogging App</a>
+          <a href="{% url 'index' %}">Django Blogging App</a>
         </h1>
         {% if user.is_authenticated %}
           <div class="user-menu">
@@ -49,6 +49,14 @@
       <div class="container">
         <ul>
           {% if user.is_authenticated %}
+            <li>
+              <a 
+                href="{% url 'index' %}"
+                class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}"
+              >
+                Home
+              </a>
+            </li>
             <li>
               <a 
                 href="{% url 'blogs:blogpost_list_all' %}"
