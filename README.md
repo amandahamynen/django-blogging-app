@@ -1,6 +1,6 @@
 # Django Blogging App
 
-A simple blogging application made with Django.
+A simple blogging application built with Django, created as a project to practice core Django concepts.
 
 ## Starting the application locally
 
@@ -21,26 +21,27 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-Access the app:
+Open your browser and visit:
 
 http://127.0.0.1:8000/
 
-## Developing the application
+## Admin panel
 
-Create new migrations based on the changes you have made to your models and apply them
-```bash
-python manage.py makemigrations
-python manage.py migrate
-```
-
-Create superuser:
+Create a superuser:
 ```bash
 python manage.py createsuperuser
 ```
 
-Enter the Username and Password you set while creating the superuser at admin panel
+Follow the prompts to set a username and password.
+Access the admin panel at:
 
+http://127.0.0.1:8000/admin
 
-http://127.0.0.1:8000/admin/
+## Development notes
 
+When you make changes to models, create and apply migrations:
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
 
