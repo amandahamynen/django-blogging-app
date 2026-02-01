@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 {% block title %}{{ blogpost.title }} - Modify{% endblock %}
 {% block content %}
-<h2 class="page-title">Modify Blog Post</h2>
+<h2>Modify Blog Post</h2>
 <form method="post">
   {% csrf_token %}
   <label for="title">Title:</label>

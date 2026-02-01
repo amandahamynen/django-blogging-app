@@ -1,0 +1,132 @@
+/* Blogpost List */
+
+.blogpost-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.blogpost-card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 6px;
+}
+
+.blogpost-card h3 a {
+  text-decoration: none;
+  color: #222;
+}
+
+.blogpost-card h3 a:hover {
+  text-decoration: underline;
+}
+
+.blogpost-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.edit-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+}
+
+.privacy-toggle-button {
+  border: none;
+  background-color: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.edit-button {
+  border: none;
+  background-color: transparent;
+  color: #333;
+  padding: 0.4rem 0.6rem;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.delete-button {
+  border: none;
+  background-color: transparent;
+  color: #c0392b;
+  padding: 0.4rem 0.6rem;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.create-post-fab {
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #0066cc;
+  color: #fff;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.blogpost-meta {
+  font-size: 0.9rem;
+  color: #777;
+  margin: 0.5rem 0;
+}
+
+.blogpost-excerpt {
+  margin-bottom: 0.8rem;
+}
+
+/* Blogpost Detail */
+
+.blogpost-detail {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 6px;
+}
+
+.blogpost-detail-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.post-title {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.blogpost-content {
+  margin: 1.5rem 0;
+}
+
+/* Blogpost Edit & Create */
+
+/* Blogpost Delete Confirm */
+
+.blogpost-delete-button {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  background: #c0392b;
+  color: #fff;
+}

@@ -5,7 +5,7 @@
 <p>Are you sure you want to delete <strong>{{ blogpost.title }}</strong>?</p>
 <form method="post">
   {% csrf_token %}
-  <button type="submit" class="button">Yes</button>
+  <button type="submit" class="blogpost-delete-button">Yes</button>
   <a href="{% url 'blogs:blogpost_detail' blogpost.id %}">Cancel</a>
 </form>
 {% endblock %}
