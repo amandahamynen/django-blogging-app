@@ -47,5 +47,7 @@ def blogpost_create(request):
 @login_required(login_url='/users/login/')
 def blogpost_delete(request, blogpost_id):
     blogpost = get_object_or_404(BlogPost, id=blogpost_id, creator=request.user)
-    blogpost.delete()
-    return redirect('blogs:blogpost_list_my')
+    if request.method == 'POST':
+        blogpost.delete()
+        return redirect('blogs:blogpost_list_my')
+    return render(request, 'blogs/blogpost_delete_confirm.html', {'blogpost': blogpost})
