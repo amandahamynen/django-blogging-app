@@ -5,12 +5,12 @@ from django.contrib.auth.decorators import login_required
 @login_required(login_url='/users/login/')
 def blogpost_list_all(request):
     blogposts = BlogPost.objects.filter(private=False)
-    return render(request, 'blogs/blogpost_list.html', {'blogposts': blogposts})
+    return render(request, 'blogs/blogpost_list.html', {'blogposts': blogposts, 'showEditContainer': False})
 
 @login_required(login_url='/users/login/')
 def blogpost_list_my(request):
     blogposts = BlogPost.objects.filter(creator=request.user)
-    return render(request, 'blogs/blogpost_list_my.html', {'blogposts': blogposts})
+    return render(request, 'blogs/blogpost_list.html', {'blogposts': blogposts, 'showEditContainer': True})
 
 @login_required(login_url='/users/login/')
 def blogpost_toggle_privacy(request, blogpost_id):
