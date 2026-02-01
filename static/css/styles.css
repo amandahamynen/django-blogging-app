@@ -27,16 +27,16 @@ body {
   align-items: center;
 }
 
-.logo a {
+.header-logo a {
   color: #fff;
   text-decoration: none;
 }
 
-.user-menu {
+.header-user-menu {
   position: relative;
 }
 
-.welcome-message {
+.user-welcome-message {
   margin-right: 0.5rem;
   font-size: 0.9rem;
   color: #fff;
@@ -87,7 +87,7 @@ body {
   border-bottom: 1px solid #eee;
 }
 
-.dropdown-logout {
+.user-dropdown-logout {
   width: 100%;
   background: none;
   border: none;
@@ -104,12 +104,6 @@ body {
 }
 
 /* Nav */
-
-.container {
-  width: 90%;
-  max-width: 900px;
-  margin: 0 auto;
-}
 
 .site-nav {
   background: #222;
@@ -151,9 +145,15 @@ body {
   margin: 0;
 }
 
+.nav-container {
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 /* Main */
 
-.content-container {
+.site-main {
   width: 90%;
   max-width: 900px;
   margin: 0 auto 4rem;

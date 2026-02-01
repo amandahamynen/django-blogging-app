@@ -10,12 +10,12 @@
   <body>
     <header class="site-header">
       <div class="header-container">
-        <h1 class="logo">
+        <h1 class="header-logo">
           <a href="{% url 'index' %}">Django Blogging App</a>
         </h1>
         {% if user.is_authenticated %}
-          <div class="user-menu">
-            <span class="welcome-message">
+          <div class="header-user-menu">
+            <span class="user-welcome-message">
               Welcome, {{ user.username }}!
             </span>
             <button class="user-avatar-button" id="userMenuButton" aria-haspopup="true">
@@ -35,7 +35,7 @@
                 method="post"
               >
                 {% csrf_token %}
-                <button type="submit" class="dropdown-logout">
+                <button type="submit" class="user-dropdown-logout">
                   Logout
                 </button>
               </form>
@@ -47,7 +47,7 @@
     </header>
 
     <nav class="site-nav">
-      <div class="container">
+      <div class="nav-container">
         <ul>
           {% if user.is_authenticated %}
             <li>
@@ -93,7 +93,7 @@
       </div>
     </nav>
 
-    <main class="content-container">{% block content %}{% endblock %}</main>
+    <main class="site-main">{% block content %}{% endblock %}</main>
 
     <footer class="site-footer">
       <p>© {{ year|default:2026 }} Blogging Platform</p>

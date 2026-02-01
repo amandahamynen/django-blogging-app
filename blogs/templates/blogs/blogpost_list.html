@@ -5,31 +5,31 @@
 <div class="blogpost-list">
   {% for blogpost in blogposts %}
   <article class="blogpost-card">
-    <div class="blogpost-header-container">
+    <div class="blogpost-card-header">
     <h3>
       <a href="{% url 'blogs:blogpost_detail' blogpost.id %}">
         {{ blogpost.title }}
       </a>
     </h3>
     {% if showEditContainer %}
-    <div class="edit-container">
-      <a href="{% url 'blogs:blogpost_toggle_privacy' blogpost.id %}" class="privacy-toggle-button" title="Toggle Privacy">
+    <div class="blogpost-edit-container">
+      <a href="{% url 'blogs:blogpost_toggle_privacy' blogpost.id %}" class="blogpost-privacy-toggle-icon" title="Toggle Privacy">
         {% if blogpost.private %}
           🔒
         {% else %}
           🌍
         {% endif %}
       </a>
-      <a href="{% url 'blogs:blogpost_edit' blogpost.id %}" class="edit-button" title="Edit post">
+      <a href="{% url 'blogs:blogpost_edit' blogpost.id %}" class="blogpost-edit-icon" title="Edit post">
         🖊️
       </a>
-      <a href="{% url 'blogs:blogpost_delete' blogpost.id %}" class="delete-button" title="Delete post">
+      <a href="{% url 'blogs:blogpost_delete' blogpost.id %}" class="blogpost-delete-icon" title="Delete post">
         🗑️
       </a>
     </div>
     <a
       href="{% url 'blogs:blogpost_create' %}"
-      class="create-post-fab"
+      class="blogpost-create-post-button"
       title="Create new blogpost"
     >
       +

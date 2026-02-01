@@ -20,21 +20,21 @@
   text-decoration: underline;
 }
 
-.blogpost-header-container {
+.blogpost-card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
 }
 
-.edit-container {
+.blogpost-edit-container {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 1rem;
 }
 
-.privacy-toggle-button {
+.blogpost-privacy-toggle-icon {
   border: none;
   background-color: transparent;
   border-radius: 4px;
@@ -42,10 +42,9 @@
   font-size: 0.9rem;
 }
 
-.edit-button {
+.blogpost-edit-icon {
   border: none;
   background-color: transparent;
-  color: #333;
   padding: 0.4rem 0.6rem;
   border-radius: 50%;
   cursor: pointer;
@@ -53,10 +52,9 @@
   line-height: 1;
 }
 
-.delete-button {
+.blogpost-delete-icon {
   border: none;
   background-color: transparent;
-  color: #c0392b;
   padding: 0.4rem 0.6rem;
   border-radius: 50%;
   cursor: pointer;
@@ -64,7 +62,7 @@
   line-height: 1;
 }
 
-.create-post-fab {
+.blogpost-create-post-button {
   position: fixed;
   bottom: 3rem;
   right: 3rem;
@@ -105,11 +103,6 @@
   align-items: center;
   gap: 0.75rem;
   margin-bottom: 1rem;
-}
-
-.post-title {
-  margin: 0;
-  font-size: 2rem;
 }
 
 .blogpost-content {
