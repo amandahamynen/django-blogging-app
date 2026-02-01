@@ -43,3 +43,9 @@ def blogpost_create(request):
         blogpost = BlogPost.objects.create(title=title, content=content, creator=request.user)
         return redirect('blogs:blogpost_detail', blogpost_id=blogpost.id)
     return render(request, 'blogs/blogpost_create.html')
+
+@login_required(login_url='/users/login/')
+def blogpost_delete(request, blogpost_id):
+    blogpost = get_object_or_404(BlogPost, id=blogpost_id, creator=request.user)
+    blogpost.delete()
+    return redirect('blogs:blogpost_list_my')
