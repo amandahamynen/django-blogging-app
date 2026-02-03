@@ -10,5 +10,23 @@
   </p>
 
   <div class="blogpost-content">{{ blogpost.content|linebreaks }}</div>
+  <h3>Kommentit</h3>
+
+  {% for comment in blogpost.comments.all %}
+  <div>
+    <strong>{{ comment.creator }}</strong>
+    <small>{{ comment.created_at }}</small>
+    <p>{{ comment.content }}</p>
+  </div>
+  {% empty %}
+  <p>Ei vielä kommentteja.</p>
+  {% endfor %}
+  {% if user.is_authenticated %}
+  <form method="post" action="{% url 'blogs:blogpost_add_comment' blogpost.id %}">
+    {% csrf_token %}
+    {{ comment_form }}
+    <button type="submit">Lisää kommentti</button>
+  </form>
+  {% endif %}
 </article>
 {% endblock %}

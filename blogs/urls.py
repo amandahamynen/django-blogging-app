@@ -11,4 +11,5 @@ urlpatterns = [
     path("create_blogpost/", views.blogpost_create, name="blogpost_create"),
     path("<int:blogpost_id>/toggle_privacy/", views.blogpost_toggle_privacy, name="blogpost_toggle_privacy"),
     path("<int:blogpost_id>/delete/", views.blogpost_delete, name="blogpost_delete"),
+    path("<int:blogpost_id>/add_comment/", views.blogpost_add_comment, name="blogpost_add_comment"),
 ]

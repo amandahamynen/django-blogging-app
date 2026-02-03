@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from .models import BlogPost
 from django.contrib.auth.decorators import login_required
+from .forms import CommentForm
 
 @login_required(login_url='/users/login/')
 def blogpost_list_all(request):
@@ -22,7 +23,7 @@ def blogpost_toggle_privacy(request, blogpost_id):
 @login_required(login_url='/users/login/')
 def blogpost_detail(request, blogpost_id):
     blogpost = get_object_or_404(BlogPost, id=blogpost_id)
-    return render(request, 'blogs/blogpost_detail.html', {'blogpost': blogpost})
+    return render(request, 'blogs/blogpost_detail.html', {'blogpost': blogpost, 'comment_form': CommentForm()})
 
 @login_required(login_url='/users/login/')
 def blogpost_edit(request, blogpost_id):
@@ -51,3 +52,16 @@ def blogpost_delete(request, blogpost_id):
         blogpost.delete()
         return redirect('blogs:blogpost_list_my')
     return render(request, 'blogs/blogpost_delete_confirm.html', {'blogpost': blogpost})
+
+@login_required(login_url='/users/login/')
+def blogpost_add_comment(request, blogpost_id):
+    blogpost = get_object_or_404(BlogPost, id=blogpost_id)
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.blogpost = blogpost
+            comment.creator = request.user
+            comment.save()
+            return redirect('blogs:blogpost_detail', blogpost_id=blogpost.id)
+    return redirect("blogs:blogpost_detail", blogpost_id=blogpost.id)
